@@ -8,7 +8,10 @@ def phi(x):
 #definindo k
 eplison = 10e-8
 k_menor = math.log10(eplison)/math.log10(0.75)
-k = int(k_menor) + 1 # como k >= K_menor e k é inteiro, k = K_menor + 1
+if k_menor//1 == k_menor:
+    k = k_menor
+else:
+    k = int(k_menor) + 1 # como k >= K_menor e k é inteiro, k = K_menor + 1
 print('k = {}'.format(k))
 
 a_0 = 2
