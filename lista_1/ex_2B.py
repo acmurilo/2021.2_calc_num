@@ -16,16 +16,19 @@ def Ah(x):
             y = 2+h**2*q-((-1-h/2*p)*(-1+h/2*p)/(Ah(x-1)))
         return y
         
-for q in range (-10,1):
+for q in range (-100, 1):
+    q = q/10
     Diag = Ah(1)
     for i in range(2,n+1):
-        Diag = Diag*Ah(i)
+        if Ah(i) < Ah(i-1):
+            Diag = Ah(i)
+        
 
     x.append(q)
     y.append(Diag)
 
 
-plt.plot(x, y, '-o')
+plt.plot(x, y, '-')
 
 plt.xlabel('Valores de q')
 plt.ylabel('Valores de Diag(q)')
