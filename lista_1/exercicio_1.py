@@ -6,7 +6,7 @@ def phi(x):
     return y
 
 #definindo k
-eplison = 10e-8
+eplison = 1e-8
 k_menor = math.log10(eplison)/math.log10(0.75)
 if k_menor//1 == k_menor:
     k = k_menor
