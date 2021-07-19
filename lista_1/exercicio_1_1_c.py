@@ -1,28 +1,41 @@
+# Biblioteca utilizada na implementação
 import math
 
-#funcao phi
+# função phi (já com as funções constantes substituídas)
 def phi(x):
-    y = 2 - (3/(4*x))
-    return y
+    return 2 - (3/(4*x))
 
-#definindo k
+# Erro aceitável
 eplison = 1e-8
+
+# Menor k necessário (Ainda um número real)
 k_menor = math.log10(eplison)/math.log10(0.75)
+
+# Como k  inteiro, coloca o menor inteiro maior que k_menor
 if k_menor//1 == k_menor:
     k = k_menor
 else:
-    k = int(k_menor) + 1 # como k >= K_menor e k é inteiro, k = K_menor + 1
-print('k = {}'.format(k))
+    # k deve ser inteiro e >= K_menor. Logo, k = K_menor + 1
+    k = int(k_menor) + 1 
+print(f'k = {k}')
 
+# Defininfo a_0 (j substituindo as funções)
 a_0 = 2
-a_1 = phi(a_0) #constante inicial
+
+# Definindo a_1
+a_i = phi(a_0)
+
+# Para o loop de iteração ir de 1 a k
 i = 1
 
-#loop de iteração 
+# Print de todos os coeficientes a_i
 for c in range(0, k):
-    print("a{} = {}".format(i, a_1))
+    print(f'a{i} = {a_i}')
 
-    a_2 = phi(a_1)
+    # Tem-se que a_i+1 = phi(a_i)  
+    a_i_1 = phi(a_i)
     i += 1
-    a_1 = a_2
+    
+    # Redefine a_i para ser printado e utilizado no próximo a_i+1
+    a_i = a_i_1
     
